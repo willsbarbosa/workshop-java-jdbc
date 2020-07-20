@@ -31,12 +31,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entities.Seller;
+import model.services.DepartmentService;
 import model.services.SellerService;
 
 public class SellerListController implements DataChangeListener, Initializable {
 
 	private SellerService service;
 	
+		
 	@FXML
 	private TableView<Seller> tableViewSeller;
 	
@@ -124,7 +126,8 @@ public class SellerListController implements DataChangeListener, Initializable {
 			SellerFormController controller = loader.getController();
 			controller.setSeller(obj);
 			controller.updateFormData();
-			controller.setSellerService(new SellerService());
+			controller.setServices(new SellerService(), new DepartmentService());
+			controller.loadAssociatedObjects();
 			controller.subscribeDataChangeListener(this);
 			
 			
