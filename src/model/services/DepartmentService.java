@@ -15,4 +15,13 @@ public class DepartmentService {
 		
 	}
 	
+	public void saveOrUpdate(Department obj) {
+		if (obj.getId() == null) { //Inserindo no banco. O campo ID é auto incrementavel
+			dao.insert(obj);
+		}
+		else {
+			dao.update(obj);
+		}
+	}
+	
 }
