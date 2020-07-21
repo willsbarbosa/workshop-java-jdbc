@@ -142,6 +142,7 @@ public class SellerListController implements DataChangeListener, Initializable {
 			
 		}
 		catch (IOException e) {
+			e.printStackTrace();
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
 		
